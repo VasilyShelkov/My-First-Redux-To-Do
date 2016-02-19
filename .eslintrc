@@ -1,6 +1,6 @@
 {
     "parser": "babel-eslint",
-    "extends": "airbnb"
+    "extends": "airbnb",
     "env": {
         "browser": true,
         "node": true,
@@ -8,7 +8,16 @@
     },
     "rules": {
         "indent": [2,"tab"],
+        "babel/generator-star-spacing": 1,
+        "babel/object-curly-spacing": 1,
+        "babel/object-shorthand": 1,
+        "babel/arrow-parens": 1,
+        "babel/no-await-in-loop": 1,
         "no-console": 0,
         "no-alert": 0
     },
+    "plugins": [
+        "react",
+        "babel"
+    ]
 }

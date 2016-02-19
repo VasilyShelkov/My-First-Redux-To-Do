@@ -1,5 +1,5 @@
 {
-  "name": "React-Hot-Dev-Starter",
+  "name": "My-First-Redux-To-Do",
   "version": "1.0.0",
   "description": "Following the egghead's tutorial on getting started with Redux. See https://egghead.io/series/getting-started-with-redux",
   "main": "index.html",
@@ -18,7 +18,7 @@
     "hot-loading",
     "webpack-hot-middleware",
     "react-transform-hmr",
-    "react-transform-catch-errors", 
+    "react-transform-catch-errors",
     "babel6",
     "eslint"
   ],
@@ -48,6 +48,7 @@
     "history": "^2.0.0",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
+    "react-redux": "^4.4.0",
     "react-router": "^2.0.0",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.2",

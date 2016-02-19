@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { combineReducers } from 'redux';
+import TodosReducer from './TodosReducer';
+import VisibilityFilter from './TodoVisibilityFilterReducer';
 
 class Todo extends Component {
 	constructor(props) {
@@ -12,6 +15,11 @@ class Todo extends Component {
 			</div>
 		);
 	}
-}
+};
+
+const TodoApp = combineReducers({
+	todos: TodosReducer,
+	visibilityfilter: VisibilityFilter
+})
 
 export default Todo;
