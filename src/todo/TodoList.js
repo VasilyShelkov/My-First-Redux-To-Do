@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { store } from '../index'; 
+import React, { Component } from 'react'; 
 import Todo from './Todo';
 
 class TodoList extends Component {
+
 	render() {
 		return (
 			<ul>

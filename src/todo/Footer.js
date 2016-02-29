@@ -7,21 +7,15 @@ class Footer extends Component {
 			<p>
 				Show:
 				{' '}
-				<FilterLink filter="SHOW_ALL"
-					currentFilter={this.props.visibilityFilter}
-					onClick={this.props.onFilterClick}>
+				<FilterLink filter="SHOW_ALL">
 					All
 				</FilterLink>
 				{' '}
-				<FilterLink filter="SHOW_ACTIVE"
-					currentFilter={this.props.visibilityFilter}
-					onClick={this.props.onFilterClick}>
+				<FilterLink filter="SHOW_ACTIVE">
 					Active
 				</FilterLink>
 				{' '}
-				<FilterLink filter="SHOW_COMPLETED"
-					currentFilter={this.props.visibilityFilter}
-					onClick={this.props.onFilterClick}>
+				<FilterLink filter="SHOW_COMPLETED">
 					Completed
 				</FilterLink>
 			</p>
