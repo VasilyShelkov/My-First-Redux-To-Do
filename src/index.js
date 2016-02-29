@@ -2,18 +2,18 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import TodoApp from './todo/TodoApp.js';
 import { combineReducers, createStore } from 'redux';
-import TodosReducer from './todo/TodosReducer';
-import VisibilityFilter from './todo/TodoVisibilityFilterReducer';
+import todos from './todo/TodosReducer';
+import visibilityFilter from './todo/TodoVisibilityFilterReducer';
 
 const todoApp = combineReducers({
-	todos: TodosReducer,
-	visibilityFilter: VisibilityFilter
-})
+	todos,
+	visibilityFilter
+});
 
 export const store = createStore(todoApp);
 
 const render = () => {
-	ReactDOM.render(<TodoApp todos={store.getState().todos} />, 
+	ReactDOM.render(<TodoApp {...store.getState()} />, 
 		document.getElementById('app')
 	);
 }

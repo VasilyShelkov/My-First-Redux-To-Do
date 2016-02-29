@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { store } from '../index';
+import AddTodo from './AddTodo';
+import TodoList from './TodoList';
+import Footer from './Footer';
 
 let nextToDoId = 0;
 
@@ -7,41 +10,50 @@ class TodoApp extends Component {
 	constructor(props) {
 		super(props);
 	}
+	
+	getVisibleTodos(todos, filter) {
+		switch (filter) {
+			case 'SHOW_ALL':
+				return todos;
+			case 'SHOW_COMPLETED':
+				return todos.filter(t => t.completed);
+			case 'SHOW_ACTIVE':
+				return todos.filter(t => !t.completed);
+		}
+	}
 
 	render() {
 		return(
 			<div>
-				<input ref={node => {
-					this.todoName = node;
-				}} />
-				
-				<button onClick={() => {
-					store.dispatch({
-						type: 'ADD_TODO',
-						text: this.todoName.value,
-						id: nextToDoId++
-					})
-					this.todoName.value = '';
-				}}>
-					Add Todo
-				</button>
+				<AddTodo onAddClick={text => {
+									store.dispatch({
+										type: 'ADD_TODO',
+										id: nextToDoId++,
+										text
+									})}} />
 
-				<ul>
-					{this.props.todos.map(todo => 
-						<li key={todo.id} onClick={() => {
-							console.log(todo.id);
+				<TodoList todos={this.getVisibleTodos(
+						this.props.todos,
+						this.props.visibilityFilter
+					)}
+					onTodoClick={id =>
 							store.dispatch({
 								type: 'TOGGLE_TODO_COMPLETED',
-								id: todo.id
+								id
 							})
-						}}>
-							{todo.completed ? todo.text:<strike>{todo.text}</strike>}
-						</li>
-					)}
-				</ul>
+					} />
+
+				<Footer visibilityFilter={this.props.visibilityFilter} 
+					onFilterClick={filter => 
+						store.dispatch({
+ 						type: 'SET_VISIBILITY_FILTER',
+ 						filter
+ 					})
+				}/>
 			</div>
 		);
 	}
+
 };
 
 
